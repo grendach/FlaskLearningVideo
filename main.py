@@ -6,14 +6,11 @@ app = Flask(__name__)
 def profile(name):
     return render_template("profile.html", name=name)
 
+@app.route("/")
+@app.route("/<user>")
+def index(user=None):
+    return render_template("user.html", user=user)
 
-# @app.route("/method", methods = ['GET', 'POST'])
-# def method():
-#     if request.method == "POST":
-#         return f"this is a {request.method} method"
-#     else:
-#         return f"this is a {request.method} method"
-#
 
 if __name__ == "__main__":
     app.run(debug=True)
