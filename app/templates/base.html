@@ -2,15 +2,15 @@
 
 <head>
     {% if title %}
-    <title>{{ title }} - microblog</title>
+    <title>{{ title }} - blog</title>
     {% else %}
-    <title>microblog</title>
+    <title>MyBlog</title>
     {% endif %}
 </head>
 
 <body>
     <div>
-        Microblog:
+        MyBlog:
         <a href="{{ url_for('index') }}">Home</a>
         <a href="{{ url_for('login') }}">Login</a>
     </div>
