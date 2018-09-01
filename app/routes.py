@@ -24,6 +24,18 @@ def index():
     ]
     return render_template('index.html', title='Home', posts=posts)
 
+
+@app.route('/user/<username>')
+@login_required
+def user_profile(username):
+    user_info = User.query.filter_by(username=username).fiter_or_404()
+    posts = [
+        {'author': user_info, 'body': 'Tech talk #1'},
+        {'author': user_info, 'body': 'Tech talk #2'}
+    ]
+    return render_template('user.html', user=user_info, posts=posts)
+
+
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if current_user.is_authenticated:
