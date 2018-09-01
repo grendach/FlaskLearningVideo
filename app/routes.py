@@ -27,13 +27,13 @@ def index():
 
 @app.route('/user/<username>')
 @login_required
-def user_profile(username):
-    user_info = User.query.filter_by(username=username).fiter_or_404()
+def user(username):
+    user = User.query.filter_by(username=username).filter_or_404()
     posts = [
-        {'author': user_info, 'body': 'Tech talk #1'},
-        {'author': user_info, 'body': 'Tech talk #2'}
+        {'author': user, 'body': 'Tech talk #1'},
+        {'author': user, 'body': 'Tech talk #2'}
     ]
-    return render_template('user.html', user=user_info, posts=posts)
+    return render_template('user.html', user=user, posts=posts)
 
 
 @app.route('/register', methods=['GET', 'POST'])
