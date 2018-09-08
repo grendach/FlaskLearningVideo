@@ -3,7 +3,7 @@
     <h1>Hello, {{ current_user.username }}!</h2>
         {% for post in posts %}
             <div>
-                <p>{{ post.author.username }} says: <b>{{ post.body }}</b></p>
+                <p>{{ post.author.username }} wrote: <b>{{ post.body }}</b></p>
             </div>
         {% endfor %}
 {% endblock %}

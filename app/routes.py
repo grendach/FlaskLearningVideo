@@ -1,6 +1,6 @@
 
 from flask import render_template, flash, redirect, url_for, request
-from flask_login import current_user, login_user, logout_user, login_required
+from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 
 from app import app, db
@@ -11,7 +11,7 @@ from app.forms import LoginForm, RegistrationForm
 @app.route('/index')
 @login_required
 def index():
-    user = {'username': 'Dmytro'}
+    user = {'username': 'dmytro'}
     posts = [
         {
             'author': user,
@@ -28,7 +28,7 @@ def index():
 @app.route('/user/<username>')
 @login_required
 def user(username):
-    user = User.query.filter_by(username=username).filter_or_404()
+    user = User.query.filter_by(username=username).first_or_404()
     posts = [
         {'author': user, 'body': 'Tech talk #1'},
         {'author': user, 'body': 'Tech talk #2'}
