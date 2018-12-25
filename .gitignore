@@ -38,7 +38,13 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
-
+.vscode/
+logs/
+*.db
+*.code-workspace
+migrations/
+__pycache__
+v
 venv
 app.db
 microblog.log*
