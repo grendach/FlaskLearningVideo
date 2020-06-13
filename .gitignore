@@ -42,7 +42,7 @@ nosetests.xml
 logs/
 *.db
 *.code-workspace
-migrations/
+
 __pycache__
 v
 venv
